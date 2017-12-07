@@ -159,4 +159,29 @@ forest(resSDNew)
 
 - Now look at the output of rma() and check tau and I2
 
+```{r}
+#Funnel plot for publication bias
+funnel(resMeanNew, main = "Random-Effects Model", xlab = "Standardized Mean Differences")
+regtest(resMeanNew)
+ranktest(resMeanNew)
+
+funnel(resSDNew, main = "Random-Effects Model", xlab = "Standardized Mean Differences")
+regtest(resSDNew)
+ranktest(resSDNew)
+#Influencial studies
+
+
+#Influential studies
+#Mean
+infMean = influence(resMeanNew)
+print(infMean)
+plot(infMean)
+
+
+#SD
+infSD = influence(resSDNew)
+print(infSD)
+plot(infSD)
+
+```
 
